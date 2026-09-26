@@ -1,3 +1,5 @@
+import './styles.css';
+
 const COLLECTIONS_KEY = 'shelf-insight-collections';
 const RECORDS_KEY = 'shelf-insight-records';
 
