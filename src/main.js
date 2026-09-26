@@ -1,5 +1,3 @@
-import './styles.css';
-
 const COLLECTIONS_KEY = 'shelf-insight-collections';
 const RECORDS_KEY = 'shelf-insight-records';
 
@@ -66,7 +64,7 @@ function render() {
   document.querySelector('#app').innerHTML = `
     <header class="topbar">
       <a class="brand" href="#" aria-label="Shelf Insight home"><span class="logo">S</span><span>Shelf Insight</span></a>
-      <nav><button class="nav-link active">Overview</button><button class="nav-link" data-scroll="collections">Collections</button></nav>
+      <nav><a class="nav-link active" href="#app">Overview</a><a class="nav-link" href="#collections">Collections</a></nav>
       <div class="header-actions"><button class="icon-btn" aria-label="Notifications">○<span class="notification"></span></button><div class="avatar">ML</div><div class="user"><strong>Marian Lewis</strong><span>Head Librarian</span></div></div>
     </header>
     <main>
@@ -145,7 +143,6 @@ function bindEvents() {
   document.querySelector('#update-size').onchange=e=>document.querySelector('#size-field').hidden=!e.target.checked;
   document.querySelector('#range').onchange=e=>{trendRange=Number(e.target.value);render();};
   document.querySelector('#search').oninput=e=>document.querySelector('#collection-rows').innerHTML=renderRows(e.target.value);
-  document.querySelector('[data-scroll]').onclick=()=>document.querySelector('#collections').scrollIntoView({behavior:'smooth'});
   document.querySelector('#manage').onclick=()=>{
     const name=prompt('Collection name (for example, Large Print)'); if(!name) return;
     const code=prompt('Short collection code', name.slice(0,3).toUpperCase()); if(!code) return;

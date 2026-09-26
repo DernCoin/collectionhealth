@@ -13,9 +13,15 @@ class ElementStub {
 }
 
 const app = new ElementStub();
+const elements = new Map();
+const elementFor = (selector) => {
+  if (selector === '#app') return app;
+  if (!elements.has(selector)) elements.set(selector, new ElementStub());
+  return elements.get(selector);
+};
 globalThis.document = {
   body: new ElementStub(),
-  querySelector: (selector) => selector === '#app' ? app : new ElementStub(),
+  querySelector: elementFor,
   querySelectorAll: () => [],
 };
 globalThis.localStorage = { getItem: () => null, setItem: empty };
@@ -26,9 +32,14 @@ await import('../src/main.js');
 
 assert.match(app.innerHTML, /Good morning, Marian/);
 assert.match(app.innerHTML, /Collection performance/);
+assert.equal(typeof elementFor('#add-data').onclick, 'function');
+elementFor('#add-data').onclick();
+assert.equal(elementFor('#modal').hidden, false);
 
 const index = await readFile('index.html', 'utf8');
 assert.match(index, /<div id="app">[\s\S]+Good morning, Marian/);
-assert.match(index, /<script defer src="\.\/src\/main\.js"><\/script>/);
+assert.match(index, /<script>[\s\S]+function bindEvents\(\)/);
+assert.doesNotMatch(index, /<script[^>]+src=/);
+assert.match(index, /href="#collections"/);
 
-console.log('Dashboard renders and index contains visible fallback content.');
+console.log('Dashboard renders with inline interactions and visible fallback content.');

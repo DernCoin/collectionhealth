@@ -21,3 +21,5 @@ npm run preview
 ```
 
 The build command creates a self-contained static site in `dist/`. Monthly records and collection changes are stored in the browser's local storage.
+
+The dashboard JavaScript is also embedded in `index.html`, so interactive controls work when the file is deployed without a bundler or asset pipeline.

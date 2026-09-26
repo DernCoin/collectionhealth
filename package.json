@@ -8,11 +8,5 @@
     "build": "node scripts/build.mjs",
     "preview": "node scripts/serve.mjs dist",
     "test": "node scripts/smoke-test.mjs"
-    "dev": "vite --host 0.0.0.0",
-    "build": "vite build",
-    "preview": "vite preview --host 0.0.0.0"
-  },
-  "devDependencies": {
-    "vite": "^7.1.7"
   }
 }
