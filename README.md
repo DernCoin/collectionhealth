@@ -1,6 +1,6 @@
 # Shelf Insight
 
-Shelf Insight is a browser-based collection health dashboard for library staff. It tracks monthly checkouts and collection holdings, then calculates annualized turnover and month-over-month trends for each collection.
+Shelf Insight is a browser-based collection health dashboard for library staff. It tracks monthly checkouts and current collection holdings, then calculates trailing 12-month turnover and month-over-month trends for each collection.
 
 ## Run locally
 
@@ -22,4 +22,4 @@ npm run preview
 
 The build command creates a self-contained static site in `dist/`. Monthly records and collection changes are stored in the browser's local storage.
 
-The dashboard JavaScript is also embedded in `index.html`, so interactive controls work when the file is deployed without a bundler or asset pipeline.
+The dashboard starts empty, and collection and circulation changes are stored in the browser's local storage. Its JavaScript is also embedded in `index.html`, so interactive controls work when the file is deployed without a bundler or asset pipeline. After changing `src/main.js`, run `npm run sync` to refresh that inline copy.
