@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f7f5f0" />
+    <title>Shelf Insight — Collection Health</title>
+    <meta name="description" content="Track circulation, turnover, and collection health over time." />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Shelf Insight home"><span class="logo">S</span><span>Shelf Insight</span></a>
+      <nav><button class="nav-link active">Overview</button><button class="nav-link" data-scroll="collections">Collections</button></nav>
+      <div class="header-actions"><button class="icon-btn" aria-label="Notifications">○<span class="notification"></span></button><div class="avatar">ML</div><div class="user"><strong>Marian Lewis</strong><span>Head Librarian</span></div></div>
+    </header>
+    <main>
+      <section class="hero">
+        <div><p class="eyebrow">COLLECTION HEALTH</p><h1>Good morning, Marian.</h1><p class="subhead">Here’s how your collections are performing this month.</p></div>
+        <button class="primary" id="add-data"><span>＋</span> Add monthly data</button>
+      </section>
+      <section class="metrics" aria-label="Key metrics">
+        <article class="metric-card"><div class="metric-top"><span>Monthly checkouts</span><span class="metric-icon positive">↗</span></div><strong class="metric-value">11,170</strong><p><b class="positive">4.4%</b> vs. last month</p></article>
+        <article class="metric-card"><div class="metric-top"><span>Total collection</span><span class="metric-icon ">▤</span></div><strong class="metric-value">29,990</strong><p>5 active collections</p></article>
+        <article class="metric-card"><div class="metric-top"><span>Annualized turnover</span><span class="metric-icon ">↻</span></div><strong class="metric-value">4.5</strong><p>checkouts per item</p></article>
+        <article class="metric-card"><div class="metric-top"><span>Strongest growth</span><span class="metric-icon positive">↗</span></div><strong class="metric-value">Young Adult</strong><p><b class="positive">+5.8%</b> vs. last month</p></article>
+      </section>
+      <section class="dashboard-grid">
+        <article class="panel trend-panel">
+          <div class="panel-heading"><div><h2>Circulation trend</h2><p>Monthly checkouts across all collections</p></div><select id="range"><option value="6" selected>Last 6 months</option><option value="12" >Last 12 months</option></select></div>
+          <div class="chart"><svg viewBox="0 0 744 235" role="img" aria-label="Monthly checkout line chart"><defs><linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#287c69" stop-opacity=".22"/><stop offset="1" stop-color="#287c69" stop-opacity="0"/></linearGradient></defs><line x1="44" y1="35" x2="710" y2="35"/><line x1="44" y1="75" x2="710" y2="75"/><line x1="44" y1="115" x2="710" y2="115"/><line x1="44" y1="155" x2="710" y2="155"/><line x1="44" y1="195" x2="710" y2="195"/><polygon points="44,205 44,92.23813786929276 175.2,87.23366159355417 306.4,76.41002685765443 437.59999999999997,66.98299015219338 568.8,65.47000895255147 700,60 700,205" fill="url(#area)"/><polyline points="44,92.23813786929276 175.2,87.23366159355417 306.4,76.41002685765443 437.59999999999997,66.98299015219338 568.8,65.47000895255147 700,60"/><g><circle cx="44" cy="92.23813786929276" r="4"/><circle cx="175.2" cy="87.23366159355417" r="4"/><circle cx="306.4" cy="76.41002685765443" r="4"/><circle cx="437.59999999999997" cy="66.98299015219338" r="4"/><circle cx="568.8" cy="65.47000895255147" r="4"/><circle cx="700" cy="60" r="4"/></g></svg><div class="chart-labels"><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span></div></div>
+        </article>
+        <article class="panel health-panel">
+          <div class="panel-heading"><div><h2>Collection health</h2><p>Current month turnover</p></div><button class="more" aria-label="More options">•••</button></div>
+          <div class="health-list"><div class="health-row"><div><span class="dot dot-0"></span><strong>Children's</strong><span>JUV</span></div><strong>6.1</strong><div class="progress"><i class="fill-0" style="width:92%"></i></div></div><div class="health-row"><div><span class="dot dot-1"></span><strong>Adult Fiction</strong><span>FIC</span></div><strong>5.5</strong><div class="progress"><i class="fill-1" style="width:78%"></i></div></div><div class="health-row"><div><span class="dot dot-2"></span><strong>Young Adult</strong><span>YA</span></div><strong>5.4</strong><div class="progress"><i class="fill-2" style="width:64%"></i></div></div><div class="health-row"><div><span class="dot dot-3"></span><strong>Media</strong><span>AV</span></div><strong>2.8</strong><div class="progress"><i class="fill-3" style="width:45%"></i></div></div><div class="health-row"><div><span class="dot dot-4"></span><strong>Nonfiction</strong><span>NF</span></div><strong>2.6</strong><div class="progress"><i class="fill-4" style="width:28%"></i></div></div></div>
+          <p class="health-note"><span>i</span> Turnover is annualized based on this month's circulation.</p>
+        </article>
+      </section>
+      <section class="panel collections-panel" id="collections">
+        <div class="panel-heading table-heading"><div><h2>Collection performance</h2><p>Detailed view for September 2026</p></div><div class="table-actions"><label class="search">⌕ <input id="search" placeholder="Search collections" /></label><button class="outline" id="manage">Manage collections</button></div></div>
+        <div class="table-wrap"><table><thead><tr><th>COLLECTION</th><th>ITEMS</th><th>CHECKOUTS</th><th>TURNOVER</th><th>VS. LAST MONTH</th><th>TREND</th></tr></thead><tbody id="collection-rows"><tr><td><span class="collection-icon">F</span><div><strong>Adult Fiction</strong><span>FIC</span></div></td><td>8,420</td><td><strong>3,890</strong></td><td><strong>5.5</strong></td><td><span class="trend up">↗ 4.9%</span></td><td><svg class="spark spark-up" viewBox="0 0 66 26"><polyline points="0,22 13,18.589473684210525 26,15.557894736842105 39,10.821052631578947 52,7.410526315789474 65,4"/></svg></td></tr><tr><td><span class="collection-icon">J</span><div><strong>Children's</strong><span>JUV</span></div></td><td>6,150</td><td><strong>3,150</strong></td><td><strong>6.1</strong></td><td><span class="trend up">↗ 5.7%</span></td><td><svg class="spark spark-up" viewBox="0 0 66 26"><polyline points="0,22 13,18.048780487804876 26,10.292682926829269 39,4 52,7.365853658536587 65,4.878048780487806"/></svg></td></tr><tr><td><span class="collection-icon">Y</span><div><strong>Young Adult</strong><span>YA</span></div></td><td>3,280</td><td><strong>1,470</strong></td><td><strong>5.4</strong></td><td><span class="trend up">↗ 5.8%</span></td><td><svg class="spark spark-up" viewBox="0 0 66 26"><polyline points="0,22 13,18.823529411764707 26,14.588235294117649 39,11.411764705882353 52,6.8235294117647065 65,4"/></svg></td></tr><tr><td><span class="collection-icon">N</span><div><strong>Nonfiction</strong><span>NF</span></div></td><td>9,730</td><td><strong>2,090</strong></td><td><strong>2.6</strong></td><td><span class="trend up">↗ 4.0%</span></td><td><svg class="spark spark-up" viewBox="0 0 66 26"><polyline points="0,18.85 13,22 26,15.25 39,11.65 52,7.6 65,4"/></svg></td></tr><tr><td><span class="collection-icon">A</span><div><strong>Media</strong><span>AV</span></div></td><td>2,410</td><td><strong>570</strong></td><td><strong>2.8</strong></td><td><span class="trend down">↘ 6.6%</span></td><td><svg class="spark spark-down" viewBox="0 0 66 26"><polyline points="0,4 13,7.789473684210526 26,10.631578947368421 39,14.421052631578949 52,18.210526315789473 65,22"/></svg></td></tr></tbody></table></div>
+      </section>
+      <footer><span>Data last updated September 2026 30, 2026</span><span>© 2026 Shelf Insight · <a href="#">Help & support</a></span></footer>
+    </main>
+    <div class="modal-backdrop" id="modal" hidden><form class="modal" id="data-form"><button type="button" class="close" aria-label="Close">×</button><p class="eyebrow">MONTHLY REPORTING</p><h2>Add monthly data</h2><p>Enter circulation for a collection. Existing entries for the same month will be updated.</p><label>Collection<select name="collectionId" required><option value="adult-fiction">Adult Fiction</option><option value="childrens">Children's</option><option value="young-adult">Young Adult</option><option value="nonfiction">Nonfiction</option><option value="media">Media</option></select></label><div class="form-grid"><label>Month<input type="month" name="month" value="2026-09" required></label><label>Checkouts<input type="number" name="checkouts" min="0" placeholder="0" required></label></div><label class="checkbox"><input type="checkbox" id="update-size"> Update collection size too</label><label id="size-field" hidden>Current number of items<input type="number" name="size" min="0" placeholder="0"></label><div class="modal-actions"><button type="button" class="outline cancel">Cancel</button><button class="primary">Save monthly data</button></div></form></div>
+  </div>
+    <script defer src="./src/main.js"></script>
+  </body>
+</html>
